@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>William Vale</title>
+    <title>Thomas Schaal</title>
 
     <link href="Content/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/twitter-bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -14,72 +15,51 @@
 
 </head>
 <body>
-    <!--Bellow is all the text I added:-->
-
     <div class="header" id="myHeader">
         <h2>
-            William Vale <a href="#top"><button class='btn btn-primary pull-right'>My Bio</button></a>
-            <a href="#two"><button class='btn btn-primary pull-right'>Portfolio</button></a>
+            Thomas Schaal 
             <a href="#three"><button class='btn btn-primary pull-right'>Contact Me</button></a>
+            <a href="#two"><button class='btn btn-primary pull-right'>Portfolio</button></a>
+            <a href="#top"><button class='btn btn-primary pull-right'>My Bio</button></a>
         </h2>
     </div>
-    <div class="content">
 
-        <h1 id="top">William Vale</h1>
+    <div class="content">
+        <h1 id="top">My Bio</h1>
         <hr>
         <p>Familiar with HTML, CSS, Javascript, and has a basic understanding of Angular and Vue.js</p>
         <p>Other skills include: Video editing, audio splicing, and animation.</p>
         <div>
             <h1 id="two">Portfolio</h1>
             <hr>
-            <span>
-                <center>
-                    <img class="portfolio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/500px-Circle_-_black_simple.svg.png"></img>
-                    <img class="portfolio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Regular_octagon.svg/1000px-Regular_octagon.svg.png"></img>
-                </center>
-                <center>
-                    <img class="portfolio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Square_-_black_simple.svg/1200px-Square_-_black_simple.svg.png"></img>
-                    <img class="portfolio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Simple_triangle.svg/1200px-Simple_triangle.svg.png"></img>
-                </center>
-            </span>
+            <p>This website mainly functions as a playground for me which is why I haven't added much css yet (which means it won't be that pretty for a while).
+            Here is the codepen project that eventually turned into this website.</p>
+            <center>
+                <img class="contain" src="Content/Capture2.PNG" />
+            </center>
         </div>
 
-        <h1>Contact Me</h1>
-        <p>Check out my social media pages and sites I use for my other projects.</p>
-        <div id="app">
-            <div class="wrapper" id="three">
-                <div class="card" v-for="post in filteredList">
-                    <a v-bind:href="post.link" target="_blank">
-                        <img v-bind:src="post.img" />
-                        <small><center>My personal</center></small>
-                        {{post.title}}
-                    </a>
-                </div>
+        <h1 id="three">Contact Me</h1>
+        <hr>
+        <p>Check out my personal social media pages and other sites I use for my projects (Twitter is just a placeholder for now).</p>
+        <div>
+            <a href="https://codepen.io/tschaal11/" class="fa fa-codepen"></a>
+            <a href="https://twitter.com/?lang=en" class="fa-twitter fa"></a>
+            <a href="https://github.com/tschaal08" class="fa fa-github"></a>
+        </div>
+        <!--This is for Vue.js when I can get Scss to work then it'll look good-->
+        <!--<div id="app">
+        <div  id="three">
+            <div class="card" v-for="post in filteredList">
+                <a v-bind:href="post.link" target="_blank">
+                    <img class="socialMedia" v-bind:src="post.img" />
+                    {{post.title}}
+                </a>
             </div>
         </div>
-
+    </div>-->
         <script type="text/javascript">
-            //$(document).ready(function () {
-
-            //    flashtext();
-
-            //});
-            //function getRandomColor() {
-            //    var letters = '0123456789ABCDEF';
-            //    var color = '#';
-            //    for (var i = 0; i < 6; i++) {
-            //        color += letters[Math.floor(Math.random() * 16)];
-            //    }
-            //    return color;
-            //}
-            //function flashtext() {
-            //    setTimeout(function () {
-
-            //        $(".breads").css("color", getRandomColor());
-            //        flashtext();
-            //    }, 200);
-            //}
-
+            //Most this javascript was cherry picked I'm still pretty new to it
             class Post {
                 constructor(title, link, author, img) {
                     this.title = title;
@@ -88,79 +68,63 @@
                     this.img = img;
                 }
             }
-            const app = new Vue({
-                el: '#app',
-                data: {
-                    keyword: '',
-                    postList: [
-                        new Post(
-                            'CodePen',
-                            'https://codepen.io/tschaal11/',
-                            'CodePen', 'https://static.codepen.io/assets/social/facebook-default-05cf522ae1d4c215ae0f09d866d97413a2204b6c9339c6e7a1b96ab1d4a7340f.png'
-                        ),
-                        new Post(
-                            'Twitter',
-                            'https://twitter.com/?lang=en',
-                            'Dorsey',
-                            'https://www.socialsamosa.com/wp-content/uploads/2013/08/twitter1.png'
-                        ),
-                        new Post(
-                            'GitHub',
-                            'https://github.com/tschaal08',
-                            'Sam',
-                            'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'
-                        ),
-                        // new Post(
-                        //   'Ember.js', 
-                        //   'http://emberjs.com/', 
-                        //   'Rachel',
-                        //   'http://www.gravatar.com/avatar/0cf15665a9146ba852bf042b0652780a?s=200'
-                        // ),
-                        // new Post(
-                        //   'Meteor.js', 
-                        //   'https://www.meteor.com/', 
-                        //   'Chris', 
-                        //   'http://hacktivist.in/introduction-to-nodejs-mongodb-meteor/img/meteor.png'
-                        // ),
-                        // new Post(
-                        //   'Aurelia', 
-                        //   'http://aurelia.io/', 
-                        //   'Tim',
-                        //   'https://cdn.auth0.com/blog/aurelia-logo.png'
-                        // ),
-                        // new Post(
-                        //   'Node.js', 
-                        //   'https://nodejs.org/en/', 
-                        //   'A. A. Ron',
-                        //   'https://code-maven.com/img/node.png'
-                        // ),
-                        // new Post(
-                        //   'Pusher', 
-                        //   'https://pusher.com/', 
-                        //   'Alex', 
-                        //   'https://avatars1.githubusercontent.com/u/739550?v=3&s=400'
-                        // ),
-                        // new Post(
-                        //   'Feathers.js', 
-                        //   'http://feathersjs.com/', 
-                        //   'Chuck',
-                        //   'https://cdn.worldvectorlogo.com/logos/feathersjs.svg'
-                        // ),
-                    ]
-                },
-                methods: {
-                    toggleOnOff() {
-                        this.onOff = !this.onOff;
-                    }
-                },
-                computed: {
-                    filteredList() {
-                        return this.postList.filter((post) => {
-                            return post.title.toLowerCase().includes(this.keyword.toLowerCase());
-                        });
-                    }
-                }
-            });
+            //const app = new Vue({
+            //    el: '#app',
+            //    data: {
+            //        keyword: '',
+            //        postList: [
+            //            new Post(
+            //                'CodePen',
+            //                'https://codepen.io/tschaal11/',
+            //                'CodePen',
+            //                'Content/facebook-default-05cf522ae1d4c215ae0f09d866d97413a2204b6c9339c6e7a1b96ab1d4a7340f.png'
+            //            ),
+            //            new Post(
+            //                'Twitter',
+            //                'https://twitter.com/?lang=en',
+            //                'Twitter',
+            //                'Content/twitter1.png'
+            //            ),
+            //            new Post(
+            //                'GitHub',
+            //                'https://github.com/tschaal08',
+            //                'GitHub',
+            //                'Content/GitHub-Mark.png'
+            //            ),
+            //            // new Post(
+            //            //   'Ember.js',
+            //            //   'http://emberjs.com/',
+            //            //   'Rachel',
+            //            //   'http://www.gravatar.com/avatar/0cf15665a9146ba852bf042b0652780a?s=200'
+            //            // ),
+            //            // new Post(
+            //            //   'Meteor.js',
+            //            //   'https://www.meteor.com/',
+            //            //   'Chris',
+            //            //   'http://hacktivist.in/introduction-to-nodejs-mongodb-meteor/img/meteor.png'
+            //            // ),
+
+            //            // new Post(
+            //            //   'Feathers.js',
+            //            //   'http://feathersjs.com/',
+            //            //   'Chuck',
+            //            //   'https://cdn.worldvectorlogo.com/logos/feathersjs.svg'
+            //            // ),
+            //        ]
+            //    },
+            //    methods: {
+            //        toggleOnOff() {
+            //            this.onOff = !this.onOff;
+            //        }
+            //    },
+            //    computed: {
+            //        filteredList() {
+            //            return this.postList.filter((post) => {
+            //                return post.title.toLowerCase().includes(this.keyword.toLowerCase());
+            //            });
+            //        }
+            //    }
+            //});
             $('a[href*="#"]')
                 // Select all links with hashes
                 // Remove links that don't actually link to anything
@@ -210,14 +174,6 @@
                 }
             }
 
-
-
-
-
-
         </script>
-
 </body>
-
-
 </html>
